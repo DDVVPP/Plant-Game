@@ -2,7 +2,7 @@ import Phaser from 'phaser'
 
 export default class LoseEndScene extends Phaser.Scene {
   constructor() {
-    // passing 'play' as a parameter that will serve as the identifier for this scene
+    // passing 'losing' as a parameter that will serve as the identifier for this scene
     super('losing')
   }
   init() {

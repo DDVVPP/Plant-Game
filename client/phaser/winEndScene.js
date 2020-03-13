@@ -2,7 +2,7 @@ import Phaser from 'phaser'
 
 export default class WinEndScene extends Phaser.Scene {
   constructor() {
-    // passing 'play' as a parameter that will serve as the identifier for this scene
+    // passing 'win' as a parameter that will serve as the identifier for this scene
     super('win')
   }
   init() {

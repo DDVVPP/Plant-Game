@@ -10,10 +10,6 @@ export default class PlayScene extends Phaser.Scene {
     this.raindropScoreText = ''
   }
 
-  init() {
-    // used to prepare data
-  }
-
   preload() {
     // loading in data
     this.load.image('background', '/assets/background.png')
@@ -34,10 +30,15 @@ export default class PlayScene extends Phaser.Scene {
     this.bucket.setCollideWorldBounds(true)
     this.bucket.body.setAllowGravity(false)
 
-    this.raindropScoreText = this.add.text(1250, 16, 'Score: 0', {
-      fontSize: '22px',
-      fill: '#000'
-    })
+    this.raindropScoreText = this.add.text(
+      1250,
+      16,
+      `Score: ${this.raindropScore}`,
+      {
+        fontSize: '22px',
+        fill: '#000'
+      }
+    )
 
     this.time.addEvent({
       delay: 3500,
@@ -88,6 +89,15 @@ export default class PlayScene extends Phaser.Scene {
     raindrop.disableBody(true, true)
     this.raindropScore++
     this.raindropScoreText.setText(`Score: ${this.raindropScore}`)
+  }
+
+  collectLightningBolts(bucket, lightningBolt) {
+    lightningBolt.disableBody(true, true)
+    this.raindropScore -= 5
+    this.raindropScoreText.setText(`Score: ${this.raindropScore}`)
+  }
+
+  checkScore() {
     this.plantObj = {
       plant1a: null,
       plant2a: null,
@@ -116,18 +126,11 @@ export default class PlayScene extends Phaser.Scene {
     } else if (this.raindropScore === 25) {
       this.plantObj.plant4a = null
       this.plantObj.plant5a = this.add.image(1300, 500, 'plant5')
+    } else if (this.raindropScore > 25) {
       this.scene.start('win')
     } else if (this.raindropScore <= -25) {
-      this.plantObj.plant4a = null
-      this.plantObj.plant5a = this.add.image(1300, 500, 'plant5')
       this.scene.start('losing')
     }
-  }
-
-  collectLightningBolts(bucket, lightningBolt) {
-    lightningBolt.disableBody(true, true)
-    this.raindropScore -= 5
-    this.raindropScoreText.setText(`Score: ${this.raindropScore}`)
   }
 
   update() {
@@ -138,5 +141,7 @@ export default class PlayScene extends Phaser.Scene {
     } else {
       this.bucket.setVelocityX(0)
     }
+
+    this.checkScore()
   }
 }
