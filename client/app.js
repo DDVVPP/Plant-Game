@@ -7,9 +7,9 @@ import Game from './components/Game'
 const App = () => {
   return (
     <div>
-      {/* <Navbar /> */}
-      {/* <Routes /> */}
-      <Game />
+      <Navbar />
+      <Routes />
+      {/* <Game /> */}
     </div>
   )
 }

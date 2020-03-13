@@ -1,21 +1,162 @@
-body {
-  font-family: sans-serif;
+/*----------------- NAVBAR -----------------*/
+.site-head {
+  position: relative;
+  font-family: 'Amiko', sans-serif;
+  font-size: 22px;
+}
+.site-head-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-a {
+.site-head-left {
+  display: flex;
+  position: relative;
+  z-index: 100;
+  align-items: center;
+}
+
+.site-head-left a,
+.site-head-right a,
+.site-head-center a {
+  display: block;
+  font-style: normal;
+  padding: 0.5rem;
+  color: #5ea9ff;
   text-decoration: none;
 }
 
-label {
-  display: block;
+.site-head a:hover {
+  text-decoration: none;
+  color: rgb(37, 95, 133);
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+.site-head-right {
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+hr {
+  opacity: 0.25;
+}
+
+/*----------------- WELCOME -----------------*/
+.shop-all-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.shop-all-btn-div button {
+  font-size: 24px;
+  font-style: normal;
+  background-color: #74add3;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.shop-all-btn-div button:hover {
+  background-color: #1a6099;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/*----------------- LOGIN FORM -----------------*/
+
+.loginSignupForm {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  font-style: normal;
+  font-weight: lighter;
+  font-family: 'Amiko', sans-serif;
+}
+.loginSignupText h1 {
+  font-family: 'Amiko', sans-serif;
+  color: #2e62af;
+  text-align: center;
+  margin-bottom: 0rem;
+  margin-top: 3rem;
+  font-style: normal;
+}
+
+.form-box-loginSignup {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Amiko', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  color: #152f33;
+  align-items: center;
+}
+
+.contact-loginSignup .column-loginSignup {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.error-txt {
+  font-family: 'Amiko', sans-serif;
+  color: #ff4447;
+  font-size: 10px;
+  margin-left: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.error-txt-large {
+  font-family: 'Amiko', sans-serif;
+  color: #ff4447;
+  font-size: 15px;
+  margin-left: 0.6rem;
+  margin-top: 1rem;
+  /* margin: 0rem; */
+}
+
+.form-box-loginSignup input {
+  border: 1px solid #4fb1eb;
+  padding: 0.7rem;
+  border-radius: 10px;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+}
+
+.form-box-loginSignup .contact-loginSignup,
+.form-box-loginSignup .loginSignup-btn-div {
+  width: 40%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-box-loginSignup .contact-loginSignup h4 {
+  margin: 0rem;
+}
+
+.loginSignup-btn-div button {
+  position: relative;
+  font-family: 'Amiko', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  background-color: #74add3;
+  border: none;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.loginSignup-btn-div button:hover {
+  background-color: #1a6099;
+  cursor: pointer;
+  transition: 0.25s;
 }
