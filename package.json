@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "PlantGame",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Catch raindrops and help your plant grow!",
   "engines": {
     "node": ">= 7.0.0"
   },
