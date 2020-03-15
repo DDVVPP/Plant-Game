@@ -10,10 +10,10 @@ export default class WinEndScene extends Phaser.Scene {
   }
   preload() {
     // used to load assest like images and audio into memory
-    this.load.image('background', '/assets/background.png')
+    this.load.image('mainBackground', '/assets/mainBackground.png')
   }
   create() {
-    this.add.image(600, 325, 'background')
+    this.add.image(600, 325, 'mainBackground')
 
     this.add.text(600, 325, 'GAME OVER, YOU WIN!', {
       fontSize: '22px',

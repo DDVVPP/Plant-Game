@@ -1,18 +1,17 @@
-// import clientStore, {clientActionCreators} from '../store'
 import Phaser from 'phaser'
-// import socket from '../socket'
 
 export default class PlayScene extends Phaser.Scene {
   constructor() {
     // passing 'play' as a parameter that will serve as the identifier for this scene
     super('play')
+
     this.raindropScore = 0
     this.raindropScoreText = ''
   }
 
   preload() {
     // loading in data
-    this.load.image('background', '/assets/background.png')
+    this.load.image('mainBackground', '/assets/mainbackground.png')
     this.load.image('raindrop', '/assets/raindrop.png')
     this.load.image('lightningBolt', '/assets/lightningBolt.png')
     this.load.image('bucket', '/assets/bucket.png')
@@ -24,10 +23,17 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(600, 325, 'background')
+    this.add.image(700, 325, 'mainBackground')
 
     this.bucket = this.physics.add.sprite(600, 800, 'bucket')
+
+    // my attempt at setting new collider bounds for the bucket
+    // this.bucket.body.setBoundsRectangle(this.add.rectangle(1200, 650))
+    // this.bucket.enableBody(true, 600, 600)
+
+    //sets collider bounds of bucket to config width and height
     this.bucket.setCollideWorldBounds(true)
+
     this.bucket.body.setAllowGravity(false)
 
     this.raindropScoreText = this.add.text(
@@ -40,6 +46,7 @@ export default class PlayScene extends Phaser.Scene {
       }
     )
 
+    //randomized raindrops
     this.time.addEvent({
       delay: 3500,
       callback: () => {
@@ -61,6 +68,7 @@ export default class PlayScene extends Phaser.Scene {
       loop: true
     })
 
+    //randomized lightning bolts
     this.time.addEvent({
       delay: 5000,
       callback: () => {
@@ -98,34 +106,50 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   checkScore() {
-    this.plantObj = {
-      plant1a: null,
-      plant2a: null,
-      plant3a: null,
-      plant4a: null,
-      plant5a: null
-    }
+    // my failed attempt at replacing previous image with new one
+    // this.plantObj = {
+    //   plant1a: null,
+    //   plant2a: null,
+    //   plant3a: null,
+    //   plant4a: null,
+    //   plant5a: null
+    // }
+    // this.plantObj = this.add.group()
+    // let plant1a = this.add.sprite(1280, 555, 'plant1')
+    // let plant1a = this.plantObj.add(this.add.sprite(1280, 555, 'plant1'))
 
-    // let plant1a = this.add.image(1280, 555, 'plant1');
-    // let plant2a = this.add.image(1290, 540, 'plant2');
-    // let plant3a = this.add.image(1300, 525, 'plant3');
-    // let plant4a = this.add.image(1300, 510, 'plant4');
-    // let plant5a = this.add.image(1300, 500, 'plant5');
+    let plant1a = this.add.image(1280, 555, 'plant1')
+    plant1a.visible = !plant1a.visible
+    let plant2a = this.add.image(1290, 540, 'plant2')
+    plant2a.visible = !plant2a.visible
+    let plant3a = this.add.image(1300, 525, 'plant3')
+    plant3a.visible = !plant3a.visible
+    let plant4a = this.add.image(1300, 510, 'plant4')
+    plant4a.visible = !plant4a.visible
+    let plant5a = this.add.image(1300, 500, 'plant5')
+    plant5a.visible = !plant5a.visible
 
-    if (this.raindropScore === 5) {
-      this.plantObj.plant1a = this.add.image(1280, 555, 'plant1')
-    } else if (this.raindropScore === 10) {
-      this.plantObj.plant1a = null
-      this.plantObj.plant2a = this.add.image(1290, 540, 'plant2')
+    if (this.raindropScore === 3) {
+      plant1a.visible = !plant1a.visible
+    } else if (this.raindropScore >= 6) {
+      // this.plantObj.killAndHide(plant1a)
+      plant1a.visible = !plant1a.visible
+      plant2a.visible = !plant2a.visible
     } else if (this.raindropScore === 15) {
-      this.plantObj.plant2a = null
-      this.plantObj.plant3a = this.add.image(1300, 525, 'plant3')
+      // this.plantObj.plant2a = null
+      // this.plantObj.plant3a = this.add.image(1300, 525, 'plant3')
+      plant2a.visible = !plant2a.visible
+      plant3a.visible = !plant3a.visible
     } else if (this.raindropScore === 20) {
-      this.plantObj.plant3a = null
-      this.plantObj.plant4a = this.add.image(1300, 510, 'plant4')
+      // this.plantObj.plant3a = null
+      // this.plantObj.plant4a = this.add.image(1300, 510, 'plant4')
+      plant3a.visible = !plant3a.visible
+      plant4a.visible = !plant4a.visible
     } else if (this.raindropScore === 25) {
-      this.plantObj.plant4a = null
-      this.plantObj.plant5a = this.add.image(1300, 500, 'plant5')
+      // this.plantObj.plant4a = null
+      // this.plantObj.plant5a = this.add.image(1300, 500, 'plant5')
+      plant4a.visible = !plant4a.visible
+      plant5a.visible = !plant5a.visible
     } else if (this.raindropScore > 25) {
       this.scene.start('win')
     } else if (this.raindropScore <= -25) {
@@ -134,14 +158,20 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   update() {
-    if (this.cursors.left.isDown) {
-      this.bucket.setVelocityX(-150)
-    } else if (this.cursors.right.isDown) {
-      this.bucket.setVelocityX(150)
-    } else {
-      this.bucket.setVelocityX(0)
+    //left and right arrow keys move bucket at stated velocity
+    //bounce added as workaround for collider bounds
+    if (this.bucket.x <= 1150) {
+      if (this.cursors.left.isDown) {
+        this.bucket.setVelocityX(-150)
+      } else if (this.cursors.right.isDown) {
+        this.bucket.setBounce(1)
+        this.bucket.setVelocityX(150)
+      } else {
+        this.bucket.setVelocityX(0)
+      }
     }
 
+    //check score continously
     this.checkScore()
   }
 }
