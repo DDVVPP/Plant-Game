@@ -13,7 +13,7 @@ export default class WinEndScene extends Phaser.Scene {
     this.load.image('mainBackground', '/assets/mainBackground.png')
   }
   create() {
-    this.add.image(600, 325, 'mainBackground')
+    this.add.image(700, 325, 'mainBackground')
 
     this.add.text(600, 325, 'GAME OVER, YOU WIN!', {
       fontSize: '22px',

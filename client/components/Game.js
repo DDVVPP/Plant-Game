@@ -6,8 +6,12 @@ class Game extends React.Component {
   componentDidMount() {
     const config = {
       type: Phaser.AUTO,
-      width: 1400,
-      height: 650,
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1400,
+        height: 650
+      },
       transparent: true,
       physics: {
         default: 'arcade',

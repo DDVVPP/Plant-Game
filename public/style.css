@@ -5,6 +5,7 @@ h1 {
   /* font-family: 'Nova Round', cursive; */
   /* font-family: 'Slackey', cursive; */
   /* font-family: 'Patrick Hand SC', cursive; */
+  font-size: 50px;
   color: #3cc4a6;
   margin-top: 10%;
   margin-bottom: 2%;
@@ -14,7 +15,7 @@ p {
   /* font-family: 'Bungee', cursive; */
   font-family: 'Kodchasan', sans-serif;
   /* font-family: 'Nova Round'; */
-  font-size: 30px;
+  font-size: 25px;
   /* font-family: 'Slackey', cursive; */
   /* font-family: 'Patrick Hand SC', cursive; */
   margin-top: 2px;
