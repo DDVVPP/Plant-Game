@@ -23,6 +23,7 @@ const Welcome = ({handleClick, isLoggedIn}) => (
           <p>
             Use your keyboard's left and right arrow keys to move your bucket.
           </p>
+          <p>Grow your plant by collecting raindrops </p>
           <p>Collect 25 raindrops and, YOU WIN!</p>
           <p>Collect a lightning bolt and your score drops by 5 points.</p>
           <p>Click on the start button to begin</p>
