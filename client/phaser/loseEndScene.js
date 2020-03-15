@@ -15,7 +15,7 @@ export default class LoseEndScene extends Phaser.Scene {
   create() {
     this.add.image(600, 325, 'mainBackground')
 
-    this.add.text(600, 325, 'GAME OVER, YOU LOSE!', {
+    this.add.text(550, 325, 'GAME OVER, YOU LOSE!', {
       fontSize: '22px',
       fill: '#000'
     })

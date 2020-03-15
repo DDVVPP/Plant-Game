@@ -16,23 +16,28 @@ const Welcome = ({handleClick, isLoggedIn}) => (
       </div>
     ) : (
       <div>
-        {/* The navbar will show these links before you log in */}
-        <h1> Welcome to the Plant Game! </h1>
-        <p>
-          Use your keyboard's arrow keys left and right to move your bucket and
-          collect 25 raindrops to win! Collecting a lightning bolt decrements
-          your points by 5. Click on the start button to begin
-        </p>
+        <div className="welcomeDiv">
+          {/* The navbar will show these links before you log in */}
 
-        <div className="shop-all-btn-div">
+          <h1> Welcome to the Plant Game! </h1>
+          <p>
+            Use your keyboard's left and right arrow keys to move your bucket.
+          </p>
+          <p>Collect 25 raindrops and, YOU WIN!</p>
+          <p>Collect a lightning bolt and your score drops by 5 points.</p>
+          <p>Click on the start button to begin</p>
+        </div>
+        <div className="buttonDiv">
           <Link to="/login">
-            <button type="button">Login</button>
-          </Link>
-          <Link to="/signup">
-            <button type="button">Sign Up</button>
+            <button type="button" className="btn-1">
+              Login
+            </button>
           </Link>
           <Link to="/game">
             <button type="button">Start</button>
+          </Link>
+          <Link to="/signup">
+            <button type="button">Sign Up</button>
           </Link>
         </div>
       </div>

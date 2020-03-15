@@ -1,75 +1,71 @@
-/*----------------- NAVBAR -----------------*/
-.site-head {
-  position: relative;
-  font-family: 'Amiko', sans-serif;
-  font-size: 22px;
-}
-.site-head-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-head-left {
-  display: flex;
-  position: relative;
-  z-index: 100;
-  align-items: center;
+/*----------------- GENERAL -----------------*/
+h1 {
+  font-family: 'Bungee', cursive;
+  /* font-family: 'Kodchasan', sans-serif; */
+  /* font-family: 'Nova Round', cursive; */
+  /* font-family: 'Slackey', cursive; */
+  /* font-family: 'Patrick Hand SC', cursive; */
+  color: #3cc4a6;
+  margin-top: 10%;
+  margin-bottom: 2%;
 }
 
-.site-head-left a,
-.site-head-right a,
-.site-head-center a {
-  display: block;
-  font-style: normal;
-  padding: 0.5rem;
-  color: #5ea9ff;
-  text-decoration: none;
-}
-
-.site-head a:hover {
-  text-decoration: none;
-  color: rgb(37, 95, 133);
-}
-
-.site-head-right {
-  position: relative;
-  z-index: 100;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-hr {
-  opacity: 0.25;
+p {
+  /* font-family: 'Bungee', cursive; */
+  font-family: 'Kodchasan', sans-serif;
+  /* font-family: 'Nova Round'; */
+  font-size: 30px;
+  /* font-family: 'Slackey', cursive; */
+  /* font-family: 'Patrick Hand SC', cursive; */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 /*----------------- WELCOME -----------------*/
-.shop-all-btn-div {
+.welcomeDiv {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.buttonDiv {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
-.shop-all-btn-div button {
+button {
+  font-family: 'Bungee', cursive;
   font-size: 24px;
   font-style: normal;
-  background-color: #74add3;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #84fab0 0%,
+    #0eafff 51%,
+    #84fab0 100%
+  );
   border: none;
   color: white;
+  width: 100%;
+  margin: 10px;
   border-radius: 5px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-.shop-all-btn-div button:hover {
-  background-color: #1a6099;
-  cursor: pointer;
-  transition: 0.25s;
+  padding: 25px 50px 25px 50px;
 }
 
-/*----------------- LOGIN FORM -----------------*/
+button:hover {
+  background-position: right center;
+  cursor: pointer;
+}
+
+/*----------------- LOGIN / SIGNUP FORM -----------------*/
 
 .loginSignupForm {
   display: flex;
@@ -147,16 +143,10 @@ hr {
   font-family: 'Amiko', sans-serif;
   font-size: 18px;
   font-style: normal;
-  background-color: #74add3;
   border: none;
   color: white;
   width: 100%;
   border-radius: 10px;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.loginSignup-btn-div button:hover {
-  background-color: #1a6099;
-  cursor: pointer;
-  transition: 0.25s;
 }
