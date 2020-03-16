@@ -110,18 +110,18 @@ const LoginForm = props => {
                 ? 'Wrong or missing username and/or password'
                 : 'Wrong or missing username and/or password'}
           </span>
+        </div>
 
-          <div className="buttonDiv">
-            <button className="loginSignup-btn" type="submit">
-              Login
+        <div className="loginButtonDiv">
+          <button className="loginSignup-btn" type="submit">
+            Login
+          </button>
+
+          <Link to="/">
+            <button className="loginSignup-btn" type="button">
+              Home
             </button>
-
-            <Link to="/">
-              <button type="button" className="loginSignup-btn">
-                Home
-              </button>
-            </Link>
-          </div>
+          </Link>
         </div>
       </form>
     </div>

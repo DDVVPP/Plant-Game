@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {connect} from 'react-redux'
 
-const Welcome = ({handleClick, isLoggedIn, email}) => (
+const Welcome = ({handleClick, isLoggedIn, firstName}) => (
   <div>
     {isLoggedIn ? (
       <div>
@@ -13,7 +13,7 @@ const Welcome = ({handleClick, isLoggedIn, email}) => (
           {/* The navbar will show these links before you log in */}
 
           <h1> Welcome to the Plant Game </h1>
-          <h2>{email}! </h2>
+          <h2>{firstName}! </h2>
           <div className="paragraphDiv">
             <p>
               Use your keyboard's left and right arrow keys to move your bucket.
@@ -87,7 +87,8 @@ const Welcome = ({handleClick, isLoggedIn, email}) => (
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
-    email: state.user.email
+    email: state.user.email,
+    firstName: state.user.firstName
   }
 }
 

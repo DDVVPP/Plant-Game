@@ -141,7 +141,9 @@ class disconnectedSignUpForm extends React.Component {
                 ? null
                 : 'Unable to sign you up. Please double-check the information you entered to make sure it is correct.'}
             </span>
+          </div>
 
+          <div className="loginButtonDiv">
             <button
               className="loginSignup-btn"
               onClick={this.reRoute}
