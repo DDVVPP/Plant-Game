@@ -32,10 +32,14 @@ const Welcome = ({handleClick, isLoggedIn, email}) => (
             </button>
           </div>
           <Link to="/game">
-            <button type="button">Start</button>
+            <button type="button" className="btn-1">
+              Start
+            </button>
           </Link>
           <Link to="/scores">
-            <button type="button">My Scores</button>
+            <button type="button" className="btn-1">
+              My Scores
+            </button>
           </Link>
         </div>
       </div>
@@ -62,10 +66,14 @@ const Welcome = ({handleClick, isLoggedIn, email}) => (
             </button>
           </Link>
           <Link to="/game">
-            <button type="button">Start</button>
+            <button type="button" className="btn-1">
+              Start
+            </button>
           </Link>
           <Link to="/signup">
-            <button type="button">Sign Up</button>
+            <button type="button" className="btn-1">
+              Sign Up
+            </button>
           </Link>
         </div>
       </div>

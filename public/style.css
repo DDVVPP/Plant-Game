@@ -55,8 +55,8 @@ p {
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 2%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 23%;
+  margin-right: 23%;
 }
 
 button {
@@ -73,10 +73,13 @@ button {
   );
   border: none;
   color: white;
+}
+
+.btn-1 {
   width: 100%;
   margin: 10px;
   border-radius: 50px;
-  padding: 20px 50px 20px 50px;
+  padding: 15px 40px 20px 40px;
 }
 
 button:hover {
@@ -85,46 +88,47 @@ button:hover {
 }
 
 /*----------------- LOGIN / SIGNUP FORM -----------------*/
-
-.loginSignupForm {
+.formDiv {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  text-align: center;
+  margin-top: 2%;
   font-style: normal;
   font-weight: lighter;
   font-family: 'Amiko', sans-serif;
 }
-.loginSignupText h1 {
-  font-family: 'Amiko', sans-serif;
-  color: #2e62af;
-  text-align: center;
-  margin-bottom: 0rem;
-  margin-top: 3rem;
-  font-style: normal;
-}
 
-.form-box-loginSignup {
+.fields {
   display: flex;
   flex-direction: column;
-  font-family: 'Amiko', sans-serif;
-  font-size: 15px;
-  font-style: normal;
-  color: #152f33;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input {
+  border: 1px solid #4fb1eb;
+  width: 38%;
+  padding: 1%;
+  border-radius: 10px;
+  opacity: 0.75;
+  margin-top: 10px;
   align-items: center;
 }
 
-.contact-loginSignup .column-loginSignup {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+.loginSignup-btn {
+  border: none;
+  color: white;
+  width: 100%;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 5px 10px 10px 10px;
 }
 
 .error-txt {
   font-family: 'Amiko', sans-serif;
   color: #ff4447;
   font-size: 10px;
-  margin-left: 0.6rem;
-  margin-top: 0.25rem;
+  margin-top: 2px;
 }
 
 .error-txt-large {
@@ -133,39 +137,4 @@ button:hover {
   font-size: 15px;
   margin-left: 0.6rem;
   margin-top: 1rem;
-  /* margin: 0rem; */
-}
-
-.form-box-loginSignup input {
-  border: 1px solid #4fb1eb;
-  padding: 0.7rem;
-  border-radius: 10px;
-  opacity: 0.75;
-  margin-top: 0.5rem;
-}
-
-.form-box-loginSignup .contact-loginSignup,
-.form-box-loginSignup .loginSignup-btn-div {
-  width: 40%;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.form-box-loginSignup .contact-loginSignup h4 {
-  margin: 0rem;
-}
-
-.loginSignup-btn-div button {
-  position: relative;
-  font-family: 'Amiko', sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  border: none;
-  color: white;
-  width: 100%;
-  border-radius: 10px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
