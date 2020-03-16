@@ -5,14 +5,39 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {connect} from 'react-redux'
 
-const Welcome = ({handleClick, isLoggedIn}) => (
+const Welcome = ({handleClick, isLoggedIn, email}) => (
   <div>
     {isLoggedIn ? (
       <div>
-        <Link to="/scores">My Scores</Link>
-        <a href="#" onClick={handleClick}>
-          Logout
-        </a>
+        <div className="welcomeDiv">
+          {/* The navbar will show these links before you log in */}
+
+          <h1> Welcome to the Plant Game </h1>
+          <h2>{email}! </h2>
+          <div className="paragraphDiv">
+            <p>
+              Use your keyboard's left and right arrow keys to move your bucket.
+            </p>
+            <p>Grow your plant by collecting raindrops </p>
+            <p>Collect 25 raindrops and, YOU WIN!</p>
+            <p>Collect a lightning bolt and your score drops by 5 points.</p>
+            <p>Click on the start button to begin</p>
+          </div>
+        </div>
+
+        <div className="buttonDiv">
+          <div>
+            <button type="button" className="btn-1" onClick={handleClick}>
+              Logout
+            </button>
+          </div>
+          <Link to="/game">
+            <button type="button">Start</button>
+          </Link>
+          <Link to="/scores">
+            <button type="button">My Scores</button>
+          </Link>
+        </div>
       </div>
     ) : (
       <div>
@@ -20,13 +45,15 @@ const Welcome = ({handleClick, isLoggedIn}) => (
           {/* The navbar will show these links before you log in */}
 
           <h1> Welcome to the Plant Game! </h1>
-          <p>
-            Use your keyboard's left and right arrow keys to move your bucket.
-          </p>
-          <p>Grow your plant by collecting raindrops </p>
-          <p>Collect 25 raindrops and, YOU WIN!</p>
-          <p>Collect a lightning bolt and your score drops by 5 points.</p>
-          <p>Click on the start button to begin</p>
+          <div className="paragraphDiv">
+            <p>
+              Use your keyboard's left and right arrow keys to move your bucket.
+            </p>
+            <p>Grow your plant by collecting raindrops </p>
+            <p>Collect 25 raindrops and, YOU WIN!</p>
+            <p>Collect a lightning bolt and your score drops by 5 points.</p>
+            <p>Click on the start button to begin</p>
+          </div>
         </div>
         <div className="buttonDiv">
           <Link to="/login">
@@ -51,7 +78,8 @@ const Welcome = ({handleClick, isLoggedIn}) => (
 //  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    email: state.user.email
   }
 }
 
@@ -59,6 +87,7 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
+      window.location.pathname = '/'
     }
   }
 }

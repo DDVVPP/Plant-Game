@@ -25,6 +25,7 @@ class disconnectedSignUpForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.reRoute = this.reRoute.bind(this)
   }
 
   handleChange(event) {
@@ -68,6 +69,13 @@ class disconnectedSignUpForm extends React.Component {
       this.state.firstName,
       this.state.lastName
     )
+  }
+  reRoute() {
+    if (this.props.user.firstName) {
+      window.location.pathname = '/'
+    } else {
+      return 'loading'
+    }
   }
 
   render() {
@@ -137,7 +145,9 @@ class disconnectedSignUpForm extends React.Component {
             </div>
 
             <div className="loginSignup-btn-div">
-              <button type="submit">Register</button>
+              <button onClick={this.reRoute} type="submit">
+                Register
+              </button>
             </div>
           </div>
         </form>
@@ -150,7 +160,8 @@ const mapSignup = state => {
   return {
     name: 'signup',
     displayName: 'Sign Up',
-    error: state.user.error
+    error: state.user.error,
+    user: state.user
   }
 }
 
