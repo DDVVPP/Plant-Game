@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import store, {postGameResult} from '../store'
 
 export default class PlayScene extends Phaser.Scene {
   constructor() {
@@ -20,6 +21,8 @@ export default class PlayScene extends Phaser.Scene {
     this.load.image('plant3', '/assets/PlantGrowth3.png')
     this.load.image('plant4', '/assets/PlantGrowth4.png')
     this.load.image('plant5', '/assets/PlantGrowth5.png')
+    const {user} = store.getState()
+    console.log(user)
   }
 
   create() {
@@ -152,7 +155,11 @@ export default class PlayScene extends Phaser.Scene {
       plant5a.visible = !plant5a.visible
     } else if (this.raindropScore > 25) {
       this.scene.start('win')
+      const {user} = store.getState()
+      store.dispatch(postGameResult(true, false, user.id))
     } else if (this.raindropScore <= -25) {
+      const {user} = store.getState()
+      store.dispatch(postGameResult(false, true, user.id))
       this.scene.start('losing')
     }
   }
