@@ -154,12 +154,17 @@ export default class PlayScene extends Phaser.Scene {
       plant4a.visible = !plant4a.visible
       plant5a.visible = !plant5a.visible
     } else if (this.raindropScore > 25) {
-      this.scene.start('win')
       const {user} = store.getState()
-      store.dispatch(postGameResult(true, false, user.id))
+      if (user.id !== undefined) {
+        store.dispatch(postGameResult(true, false, user.id))
+      }
+      this.scene.start('win')
     } else if (this.raindropScore <= -25) {
       const {user} = store.getState()
-      store.dispatch(postGameResult(false, true, user.id))
+      console.log('userId', user.id)
+      if (user.id !== undefined) {
+        store.dispatch(postGameResult(false, true, user.id))
+      }
       this.scene.start('losing')
     }
   }

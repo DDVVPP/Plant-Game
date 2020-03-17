@@ -3,9 +3,9 @@ const {GameResult} = require('../db/models')
 
 module.exports = router
 
-// GET /api/messages
+// GET /api/gameResult
 
-// POST /api/messages
+// POST /api/gameResult
 router.post('/', async (req, res, next) => {
   try {
     const gameResultData = await GameResult.create({

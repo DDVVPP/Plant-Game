@@ -28,7 +28,7 @@ class Game extends React.Component {
     game.events.off('hidden', game.onHidden, game)
   }
   shouldComponentUpdate() {
-    // return false
+    return false
   }
   render() {
     return <div id="phaser-game" />
