@@ -130,11 +130,9 @@ class disconnectedSignUpForm extends React.Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
-            {
-              <div className="error-txt">
-                {errors.password.length > 0 && errors.password}
-              </div>
-            }
+            <div className="error-txt">
+              {errors.password.length > 0 && errors.password}
+            </div>
 
             <span className="error-txt-large">
               {!this.props.error
