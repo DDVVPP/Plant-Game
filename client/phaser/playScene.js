@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 import Phaser from 'phaser'
 import store, {postGameResult} from '../store'
 
@@ -21,8 +22,6 @@ export default class PlayScene extends Phaser.Scene {
     this.load.image('plant3', '/assets/PlantGrowth3.png')
     this.load.image('plant4', '/assets/PlantGrowth4.png')
     this.load.image('plant5', '/assets/PlantGrowth5.png')
-    const {user} = store.getState()
-    console.log(user)
   }
 
   create() {
@@ -108,6 +107,7 @@ export default class PlayScene extends Phaser.Scene {
     this.raindropScoreText.setText(`Score: ${this.raindropScore}`)
   }
 
+  // eslint-disable-next-line complexity
   checkScore() {
     // my failed attempt at replacing previous image with new one
     // this.plantObj = {
@@ -134,16 +134,16 @@ export default class PlayScene extends Phaser.Scene {
 
     if (this.raindropScore === 3) {
       plant1a.visible = !plant1a.visible
-    } else if (this.raindropScore >= 6) {
+    } else if (this.raindropScore >= 6 && this.raindropScore < 15) {
       // this.plantObj.killAndHide(plant1a)
       plant1a.visible = !plant1a.visible
       plant2a.visible = !plant2a.visible
-    } else if (this.raindropScore === 15) {
+    } else if (this.raindropScore >= 15 && this.raindropScore < 20) {
       // this.plantObj.plant2a = null
       // this.plantObj.plant3a = this.add.image(1300, 525, 'plant3')
       plant2a.visible = !plant2a.visible
       plant3a.visible = !plant3a.visible
-    } else if (this.raindropScore === 20) {
+    } else if (this.raindropScore >= 20 && this.raindropScore < 25) {
       // this.plantObj.plant3a = null
       // this.plantObj.plant4a = this.add.image(1300, 510, 'plant4')
       plant3a.visible = !plant3a.visible

@@ -5,16 +5,13 @@ import axios from 'axios'
  */
 const GET_GAMERESULT = 'GET_GAMERESULT'
 
-/**
- * INITIAL STATE
- */
-const gameResult = {}
-
 // ACTION CREATORS
-export function getGameResult(win, lose, userId) {
-  const action = {type: GET_GAMERESULT, win, lose, userId}
-  return action
-}
+export const getGameResult = (win, lose, userId) => ({
+  type: GET_GAMERESULT,
+  win,
+  lose,
+  userId
+})
 
 // THUNK CREATORS
 
@@ -28,7 +25,7 @@ export const postGameResult = (win, lose, userId) => {
 }
 
 // REDUCER
-export default function messages(state = {}, action) {
+export default function gameResult(state = {}, action) {
   switch (action.type) {
     case GET_GAMERESULT:
       return gameResult
