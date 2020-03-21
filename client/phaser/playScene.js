@@ -27,7 +27,7 @@ export default class PlayScene extends Phaser.Scene {
   create() {
     this.add.image(700, 325, 'mainBackground')
 
-    this.bucket = this.physics.add.sprite(600, 800, 'bucket')
+    this.bucket = this.physics.add.sprite(700, 800, 'bucket')
 
     // my attempt at setting new collider bounds for the bucket
     // this.bucket.body.setBoundsRectangle(this.add.rectangle(1200, 650))
@@ -159,6 +159,7 @@ export default class PlayScene extends Phaser.Scene {
         store.dispatch(postGameResult(true, false, user.id))
       }
       this.scene.start('win')
+      this.raindropScore = 0
     } else if (this.raindropScore <= -25) {
       const {user} = store.getState()
       console.log('userId', user.id)
@@ -166,6 +167,7 @@ export default class PlayScene extends Phaser.Scene {
         store.dispatch(postGameResult(false, true, user.id))
       }
       this.scene.start('losing')
+      this.raindropScore = 0
     }
   }
 

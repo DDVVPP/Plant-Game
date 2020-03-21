@@ -20,6 +20,15 @@ class Game extends React.Component {
           debug: false
         }
       },
+      google: {
+        families: [
+          'Bungee',
+          'Kodchasan',
+          'Nova+Round',
+          'Patrick+Hand+SC',
+          'Slackey'
+        ]
+      },
       scene: [PlayScene, WinEndScene, LoseEndScene]
     }
     let game = new Phaser.Game(config)

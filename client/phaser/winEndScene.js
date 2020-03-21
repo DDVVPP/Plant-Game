@@ -15,11 +15,19 @@ export default class WinEndScene extends Phaser.Scene {
   create() {
     this.add.image(700, 325, 'mainBackground')
 
-    this.add.text(600, 325, 'GAME OVER, YOU WIN!', {
+    this.add.text(610, 300, 'GAME OVER, YOU WIN!', {
       fontSize: '22px',
       fill: '#000'
     })
 
+    this.add
+      .text(635, 400, 'PLAY AGAIN', {
+        fontSize: '35px',
+        fill: '#000'
+      })
+      .setInteractive({useHandCursor: true})
+      .on('pointerover', () => this.clickButton.setStyle({fill: '#fff'}))
+      .on('pointerdown', () => this.scene.start('play'))
     // you can navigate to the next scene like this
     // this.scene.start('play');
   }
